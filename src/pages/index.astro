@@ -19,7 +19,7 @@ const posts = (await getCollection('blog')).sort(
     <ul class="post-list">
       {posts.map((post) => (
         <li>
-          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          <a href={`${import.meta.env.BASE_URL}blog/${post.id}/`}>{post.data.title}</a>
           <br />
           <time datetime={post.data.pubDate.toISOString()}>
             {post.data.pubDate.toLocaleDateString('zh-CN')}
@@ -27,6 +27,6 @@ const posts = (await getCollection('blog')).sort(
         </li>
       ))}
     </ul>
-    <p><a href="/blog">查看全部文章 →</a></p>
+    <p><a href={`${import.meta.env.BASE_URL}blog`}>查看全部文章 →</a></p>
   </section>
 </BaseLayout>
